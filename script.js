@@ -202,6 +202,17 @@ city.add(town);
 let gridHelper = new THREE.GridHelper(60, 120, 0xff0000, 0x000000);
 city.add(gridHelper);
 
+// Cars World
+let createCars = function (cScale = 2, cPos = 20, cColor = 0xffff00) {
+  var cMat = new THREE.MeshToonMaterial({
+    color: cColor,
+    side: THREE.DoubleSide,
+  });
+  var cGeo = new THREE.CubeGeometry(1, cScale / 40, cScale / 40);
+  var cElem = new THREE.Mesh(cGeo, cMat);
+  var cAmp = 3;
+
+};
 
 // Calling Main Functions
 generateLines();
