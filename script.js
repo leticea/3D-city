@@ -161,6 +161,18 @@ function onDocumentTouchStart(e) {
   }
 }
 
+function onDocumentTouchMove(e) {
+  if (e.touches.length == 1) {
+    e.preventDefault();
+    mouse.x = e.touches[0].pageX - window.innerWidth / 2;
+    mouse.y = e.touches[0].pageY - window.innerHeight / 2;
+  }
+}
+
+window.addEventListener("mousemove", onMouseMove, false);
+window.addEventListener("touchstart", onDocumentTouchStart, false);
+window.addEventListener("touchmove", onDocumentTouchMove, false);
+
 // Calling Main Functions
 generateLines();
 init();
