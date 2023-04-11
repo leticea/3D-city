@@ -33,14 +33,27 @@ let createCarPos = true;
 let uSpeed = 0.001;
 
 // FOG Background
-let setcolor = 0xF02050;
+let setcolor = 0xf02050;
 scene.background = new THREE.color(setcolor);
 scene.fog = new THREE.Fog(setcolor, 10, 16);
 
 // Random Function
 function mathRandom(num = 8) {
-  let numValue = - Math.random() * num + Math.random() * num;
+  let numValue = -Math.random() * num + Math.random() * num;
   return numValue;
+}
+
+// Change Building Colors
+let setTintNum = true;
+function setTintColor() {
+  if (setTintNum) {
+    setTintNum = false;
+    var setColor = 0x000000;
+  } else {
+    setTintNum = true;
+    var setColor = 0x000000;
+  }
+  return setColor;
 }
 
 // Calling Main Functions
