@@ -124,7 +124,21 @@ function init() {
     smoke.add(particular);
   }
 
-  
+  var pmaterial = new THREE.MeshPhongMaterial({
+    color: 0x000000,
+    side: THREE.DoubleSide,
+    roughness: 10,
+    metalness: 0.6,
+    opacity: 0.9,
+    transparent: true,
+  });
+
+  var pgeometry = new THREE.PlaneGeometry(60, 60);
+  var pelement = new THREE.Mesh(pgeometry, pmaterial);
+  pelement.rotation.x = -90 * Math.PI / 180;
+  pelement.position.y = -0.001;
+  pelement.receiveShadow = true;
+  city.add(pelement);
 }
 
 // Calling Main Functions
