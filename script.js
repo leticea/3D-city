@@ -91,7 +91,18 @@ function init() {
     cube.setShadow = true;
     cube.receiveShadow = true;
     cube.rotationValue = 0.1 + Math.abs(mathRandom(8));
-    
+    floor.scale.y = 0.05;
+    cube.scale.y = 0.1 + Math.abs(mathRandom(8));
+
+    var cubeWidth = 0.9;
+    cube.scale.x = cube.scale.z = cubeWidth + mathRandom(1 - cubeWidth);
+    cube.position.x = Math.round(mathRandom());
+    cube.position.z = Math.round(mathRandom());
+
+    floor.position.set(cube.position.x, 0, cube.position.z);
+
+    town.add(floor);
+    town.add(cube);
   }
 }
 
