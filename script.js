@@ -34,7 +34,7 @@ let uSpeed = 0.001;
 
 // FOG Background
 let setcolor = 0xf02050;
-scene.background = new THREE.color(setcolor);
+scene.background = new THREE.Color(setcolor);
 scene.fog = new THREE.Fog(setcolor, 10, 16);
 
 // Random Function
@@ -70,13 +70,13 @@ function init() {
     );
     var material = new THREE.MeshStandardMaterial({
       color: setTintColor(),
-      wireFrame: false,
+      wireframe: false,
       shading: THREE.SmoothShading,
       side: THREE.DoubleSide,
     });
-    var wmaterial = new THREE.MeshLamberMaterial({
+    var wmaterial = new THREE.MeshLambertMaterial({
       color: 0xffffff,
-      wireFrame: false,
+      wireframe: true,
       transparent: true,
       opacity: 0.03,
       side: THREE.DoubleSide,
@@ -150,7 +150,7 @@ var intersected;
 function onMouseMove(e) {
   e.preventDefault();
   mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 }
 
 function onDocumentTouchStart(e) {
@@ -174,18 +174,17 @@ window.addEventListener("touchstart", onDocumentTouchStart, false);
 window.addEventListener("touchmove", onDocumentTouchMove, false);
 
 // Create Lights
-var ambientLight = new THREE.AmbientLight(0xffffff, 4);
-var lightFront = new THREE.SpotLight(0xffffff, 20, 10);
-var lightBack = new THREE.PointLight(0xffffff, 0.5);
-var spotLightHelper = new THREE.SpotLightHelper(lightFront);
+let ambientLight = new THREE.AmbientLight(0xffffff, 4);
+let lightFront = new THREE.SpotLight(0xffffff, 20, 10);
+let lightBack = new THREE.PointLight(0xffffff, 0.5);
+let spotLightHelper = new THREE.SpotLightHelper(lightFront);
 
 lightFront.rotation.x = (45 * Math.PI) / 180;
 lightFront.rotation.z = (-45 * Math.PI) / 180;
 lightFront.position.set(5, 5, 5);
-lightFront.castShow = true;
+lightFront.castShadow = true;
 lightFront.shadow.mapSize.width = 6000;
 lightFront.shadow.mapSize.height = lightFront.shadow.mapSize.width;
-
 lightFront.penumbra = 0.1;
 lightBack.position.set(0, 6, 0);
 
@@ -208,9 +207,9 @@ let createCars = function (cScale = 2, cPos = 20, cColor = 0xffff00) {
     color: cColor,
     side: THREE.DoubleSide,
   });
-  var cGeo = new THREE.CubeGeometry(1, cScale / 40, cScale / 40);
-  var cElem = new THREE.Mesh(cGeo, cMat);
-  var cAmp = 3;
+  let cGeo = new THREE.CubeGeometry(1, cScale / 40, cScale / 40);
+  let cElem = new THREE.Mesh(cGeo, cMat);
+  let cAmp = 3;
 
   if (createCarPos) {
     createCarPos = false;
@@ -227,7 +226,7 @@ let createCars = function (cScale = 2, cPos = 20, cColor = 0xffff00) {
     createCarPos = true;
     cElem.position.x = mathRandom(cAmp);
     cElem.position.z = -cPos;
-    cElem.position.y = (90 * Math.PI) / 180;
+    cElem.rotation.y = (90 * Math.PI) / 180;
 
     TweenMax.to(cElem.position, 5, {
       z: cPos,
@@ -239,24 +238,24 @@ let createCars = function (cScale = 2, cPos = 20, cColor = 0xffff00) {
   }
 
   cElem.receiveShadow = true;
-  cElem.castShow = true;
+  cElem.castShadow = true;
   cElem.position.y = Math.abs(mathRandom(5));
   city.add(cElem);
 };
 
-var generateLines = () => {
+let generateLines = () => {
   for (var i = 0; i < 60; i++) {
     createCars(0.1, 20);
   }
 };
 
 // Camera Position
-var cameraSet = () => {
+let cameraSet = () => {
   createCars(0.1, 20, 0xffffff);
 };
 
 // Animate Functions
-var animate = () => {
+let animate = () => {
   var time = Date.now() * 0.00005;
   requestAnimationFrame(animate);
 

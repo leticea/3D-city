@@ -20,10 +20,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
 - [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Three.js](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
 
 ## 💻 Projeto
 
-Cidade em 3D.
+Gráfico de uma cidade em 3D.
 
 Aula do canal [AsmrProg](https://www.youtube.com/watch?v=v_oCvKprWCc)
 
