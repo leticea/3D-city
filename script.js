@@ -189,6 +189,20 @@ lightFront.shadow.mapSize.height = lightFront.shadow.mapSize.width;
 lightFront.penumbra = 0.1;
 lightBack.position.set(0, 6, 0);
 
+smoke.position.y = 2;
+
+scene.add(ambientLight);
+city.add(lightFront);
+scene.add(lightBack);
+scene.add(city);
+city.add(smoke);
+city.add(town);
+
+
+
+
+
+
 // Calling Main Functions
 generateLines();
 init();
