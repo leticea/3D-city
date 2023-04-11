@@ -56,6 +56,45 @@ function setTintColor() {
   return setColor;
 }
 
+// Create City
+function init() {
+  let segments = 2;
+  for (let i = 1; i < 100; i++) {
+    let geometry = new THREE.CubeGeometry(
+      1,
+      0,
+      0,
+      segments,
+      segments,
+      segments
+    );
+    var material = new THREE.MeshStandardMaterial({
+      color: setTintColor(),
+      wireFrame: false,
+      shading: THREE.SmoothShading,
+      side: THREE.DoubleSide,
+    });
+    var wmaterial = new THREE.MeshLamberMaterial({
+      color: 0xffffff,
+      wireFrame: false,
+      transparent: true,
+      opacity: 0.03,
+      side: THREE.DoubleSide,
+    });
+
+    let cube = new THREE.Mesh(geometry, material);
+    let wire = new THREE.Mesh(geometry, material);
+    let floor = new THREE.Mesh(geometry, material);
+    let wfloor = new THREE.Mesh(geometry, material);
+
+    cube.add(wfloor);
+    cube.setShadow = true;
+    cube.receiveShadow = true;
+    cube.rotationValue = 0.1 + Math.abs(mathRandom(8));
+    
+  }
+}
+
 // Calling Main Functions
 generateLines();
 init();
