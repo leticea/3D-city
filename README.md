@@ -11,7 +11,7 @@
   <img alt="" src=".github/image.png">
 </p>
 
-## Roll Dice
+## 3D City
 
 ## 🚀 Tecnologias
 
@@ -23,9 +23,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-App para rolar dado com JavaScript.
+Cidade em 3D.
 
-Aula do canal [AsmrProg](https://www.youtube.com/watch?v=HuEBqPpQkMw)
+Aula do canal [AsmrProg](https://www.youtube.com/watch?v=v_oCvKprWCc)
 
 ## 🚀 Como Rodar
 
