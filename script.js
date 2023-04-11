@@ -32,6 +32,11 @@ let town = new THREE.Object3D();
 let createCarPos = true;
 let uSpeed = 0.001;
 
+// FOG Background
+let setcolor = 0xF02050;
+scene.background = new THREE.color(setcolor);
+scene.fog = new THREE.Fog(setcolor, 10, 16);
+
 // Calling Main Functions
 generateLines();
 init();
