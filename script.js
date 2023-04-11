@@ -268,6 +268,16 @@ var animate = () => {
   } else if (city.rotation.x > 1) {
     city.rotation.x = 1;
   }
+  var cityRotation = Math.sin(Date.now() / 5000) * 13;
+  for (let i = 0, l = town.children.length; i < l; i++) {
+    var object = town.children[i];
+  }
+
+  smoke.rotation.y += 0.01;
+  smoke.rotation.x += 0.01;
+
+  camera.lookAt(city.position);
+  renderer.render(scene, camera);
 };
 
 // Calling Main Functions
