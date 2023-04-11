@@ -244,6 +244,12 @@ let createCars = function (cScale = 2, cPos = 20, cColor = 0xffff00) {
   city.add(cElem);
 };
 
+var generateLines = () => {
+  for (var i = 0; i < 60; i++) {
+    createCars(0, 1, 20);
+  }
+};
+
 // Calling Main Functions
 generateLines();
 init();
