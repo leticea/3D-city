@@ -143,13 +143,22 @@ function init() {
 
 // Mouse functions
 var raycaster = new THREE.Raycaster();
-var mouse = new THREE.Vector2(), INTERSECTED;
+var mouse = new THREE.Vector2(),
+  INTERSECTED;
 var intersected;
 
 function onMouseMove(e) {
   e.preventDefault();
   mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
   mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
+}
+
+function onDocumentTouchStart(e) {
+  if (e.touches.length == 1) {
+    e.preventDefault();
+    mouse.x = e.touches[0].pageX - window.innerWidth / 2;
+    mouse.y = e.touches[0].pageY - window.innerHeight / 2;
+  }
 }
 
 // Calling Main Functions
