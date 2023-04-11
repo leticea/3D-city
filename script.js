@@ -17,6 +17,21 @@ function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+let camera = new THREE.PerspectiveCamera(
+  20,
+  window.innerWidth / window.innerHeight,
+  1,
+  500
+);
+camera.position.set(0, 2, 14);
+
+let scene = new THREE.Scene();
+let city = new THREE.Object3D();
+let smoke = new THREE.Object3D();
+let town = new THREE.Object3D();
+let createCarPos = true;
+let uSpeed = 0.001;
+
 // Calling Main Functions
 generateLines();
 init();
