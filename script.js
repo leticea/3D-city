@@ -37,6 +37,12 @@ let setcolor = 0xF02050;
 scene.background = new THREE.color(setcolor);
 scene.fog = new THREE.Fog(setcolor, 10, 16);
 
+// Random Function
+function mathRandom(num = 8) {
+  let numValue = - Math.random() * num + Math.random() * num;
+  return numValue;
+}
+
 // Calling Main Functions
 generateLines();
 init();
