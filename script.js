@@ -135,10 +135,21 @@ function init() {
 
   var pgeometry = new THREE.PlaneGeometry(60, 60);
   var pelement = new THREE.Mesh(pgeometry, pmaterial);
-  pelement.rotation.x = -90 * Math.PI / 180;
+  pelement.rotation.x = (-90 * Math.PI) / 180;
   pelement.position.y = -0.001;
   pelement.receiveShadow = true;
   city.add(pelement);
+}
+
+// Mouse functions
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2(), INTERSECTED;
+var intersected;
+
+function onMouseMove(e) {
+  e.preventDefault();
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
 }
 
 // Calling Main Functions
