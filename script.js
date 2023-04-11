@@ -173,6 +173,15 @@ window.addEventListener("mousemove", onMouseMove, false);
 window.addEventListener("touchstart", onDocumentTouchStart, false);
 window.addEventListener("touchmove", onDocumentTouchMove, false);
 
+// Create lights
+var ambientLight = new THREE.AmbientLight(0xffffff, 4);
+var lightFront = new THREE.SpotLight(0xffffff, 20, 10);
+var lightBack = new THREE.PointLight(0xffffff, 0.5);
+var spotLightHelper = new THREE.SpotLightHelper(lightFront);
+
+lightFront.rotation.x = (45 * Math.PI) / 180;
+lightFront.rotation.y = (-45 * Math.PI) / 180;
+
 // Calling Main Functions
 generateLines();
 init();
