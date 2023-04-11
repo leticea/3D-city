@@ -246,8 +246,13 @@ let createCars = function (cScale = 2, cPos = 20, cColor = 0xffff00) {
 
 var generateLines = () => {
   for (var i = 0; i < 60; i++) {
-    createCars(0, 1, 20);
+    createCars(0.1, 20);
   }
+};
+
+// Camera Position
+var cameraSet = () => {
+  createCars(0.1, 20, 0xffffff);
 };
 
 // Calling Main Functions
