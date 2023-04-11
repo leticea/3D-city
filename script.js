@@ -9,7 +9,7 @@ if (window.innerWidth > 800) {
 }
 document.body.appendChild(renderer.domElement);
 
-// Responsive codes
+// Responsive Codes
 window.addEventListener("resize", onWindowResize, false);
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -141,7 +141,7 @@ function init() {
   city.add(pelement);
 }
 
-// Mouse functions
+// Mouse Functions
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2(),
   INTERSECTED;
@@ -173,7 +173,7 @@ window.addEventListener("mousemove", onMouseMove, false);
 window.addEventListener("touchstart", onDocumentTouchStart, false);
 window.addEventListener("touchmove", onDocumentTouchMove, false);
 
-// Create lights
+// Create Lights
 var ambientLight = new THREE.AmbientLight(0xffffff, 4);
 var lightFront = new THREE.SpotLight(0xffffff, 20, 10);
 var lightBack = new THREE.PointLight(0xffffff, 0.5);
@@ -253,6 +253,21 @@ var generateLines = () => {
 // Camera Position
 var cameraSet = () => {
   createCars(0.1, 20, 0xffffff);
+};
+
+// Animate Functions
+var animate = () => {
+  var time = Date.now() * 0.00005;
+  requestAnimationFrame(animate);
+
+  city.rotation.y -= (mouse.x * 8 - camera.rotation.y) * uSpeed;
+  city.rotation.x -= (-(mouse.y * 2) - camera.rotation.x) * uSpeed;
+
+  if (city.rotation.x < -0.05) {
+    city.rotation.x = -0.05;
+  } else if (city.rotation.x > 1) {
+    city.rotation.x = 1;
+  }
 };
 
 // Calling Main Functions
