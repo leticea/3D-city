@@ -198,9 +198,9 @@ scene.add(city);
 city.add(smoke);
 city.add(town);
 
-
-
-
+// Grid Helper
+let gridHelper = new THREE.GridHelper(60, 120, 0xff0000, 0x000000);
+city.add(gridHelper);
 
 
 // Calling Main Functions
