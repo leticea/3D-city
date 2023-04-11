@@ -180,7 +180,14 @@ var lightBack = new THREE.PointLight(0xffffff, 0.5);
 var spotLightHelper = new THREE.SpotLightHelper(lightFront);
 
 lightFront.rotation.x = (45 * Math.PI) / 180;
-lightFront.rotation.y = (-45 * Math.PI) / 180;
+lightFront.rotation.z = (-45 * Math.PI) / 180;
+lightFront.position.set(5, 5, 5);
+lightFront.castShow = true;
+lightFront.shadow.mapSize.width = 6000;
+lightFront.shadow.mapSize.height = lightFront.shadow.mapSize.width;
+
+lightFront.penumbra = 0.1;
+lightBack.position.set(0, 6, 0);
 
 // Calling Main Functions
 generateLines();
