@@ -104,6 +104,27 @@ function init() {
     town.add(floor);
     town.add(cube);
   }
+
+  // Particulars
+  var gmaterial = new THREE.MeshToonMaterial({
+    color: 0xffff00,
+    side: THREE.DoubleSide,
+  });
+  var gparticular = new THREE.CircleGeometry(0.01, 3);
+  var aparticular = 5;
+
+  for (let h = 1; h < 300; h++) {
+    var particular = new THREE.Mesh(gparticular, gmaterial);
+    particular.position.set(
+      mathRandom(aparticular),
+      mathRandom(aparticular),
+      mathRandom(aparticular)
+    );
+    particular.rotation.set(mathRandom(), mathRandom(), mathRandom());
+    smoke.add(particular);
+  }
+
+  
 }
 
 // Calling Main Functions
